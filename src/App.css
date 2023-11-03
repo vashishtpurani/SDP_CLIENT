@@ -1,3 +1,17 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer components{
+    .sidebar-icon{
+        @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-3 mx-auto bg-gray-800
+        text-white hover:text-red-600 cursor-pointer
+        rounded-3xl hover:rounded-xl
+        transition-all duration-300 ease-linear;
+    }
+
+    .sidebar-tooltip{
+        @apply absolute w-auto p-2 m-2 rounded-md text-white bg-gray-800 text-xl font-bold min-w-max left-14 shadow-md
+        transition-all duration-100 scale-0 origin-left;
+    }
+}

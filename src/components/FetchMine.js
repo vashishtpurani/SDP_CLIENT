@@ -9,9 +9,9 @@ const FetchAll = () => {
         headers: {
             Authorization: `Bearer ${token}`,
         },
-    });
-
+    })
     const [data, setData] = useState([]);
+    const [ID, setId] = useState([{id:""}]);
     let res;
 
     const getAll = async () => {
@@ -25,10 +25,18 @@ const FetchAll = () => {
     }
     const reOpen = async (id)=>{
         const res = await authAxios.post(`user/reopen/${id}`)
+        console.log(res)
+        if(res.status===200){
+            window.location.reload(false)
+        }
     }
     const feedback =  async (id)=>{
         // const res = await authAxios.post(`user/reopen/${id}`)
         console.log(id)
+    }
+    const hire =  async (id)=>{
+        const res = await authAxios.post(`chat/reqCom/${id}`)
+        console.log(res)
     }
 
     useEffect(() => {
@@ -62,7 +70,7 @@ const FetchAll = () => {
             {data.map((item) => (
                 <div key={item._id} className="relative bg-white p-4 mb-4 shadow">
                     {item.Status?(
-                        <button className="absolute top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>reOpen(item._id)}>
+                        <button className="absolute top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>reOpen(item.id)}>
                             reopen query
                         </button>):(null)
                     }
@@ -83,10 +91,13 @@ const FetchAll = () => {
                     <ul>
                         {item.Ans.map((answerObject, index) => (
                             <li key={index} className="mb-2">
-                                <div className="border p-6 rounded-md shadow flex flex-col relative">
+                                <div className="border p-8 rounded-md shadow flex flex-col relative">
                                     <div className="absolute top-2 right-2">
-                                        <button className="absolute top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>feedback(answerObject.id)}>
+                                        <button className="relative top-2 right-5 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>feedback(answerObject.id)}>
                                             feedback
+                                        </button>
+                                        <button className="relative top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>hire(answerObject.id)}>
+                                            hire a lawyer
                                         </button>
                                     </div>
                                     <p className="text-gray-800">

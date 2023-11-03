@@ -1,0 +1,16 @@
+/* ChatMessage.css */
+.message-container {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    /*max-width: 70%; */
+    /*width: 100%;*/
+    display: flex;
+}
+
+.user-message {
+    @apply bg-blue-500 text-white rounded-xl w-fit ml-8;
+}
+
+.lawyer-message {
+    @apply bg-green-500 text-white rounded-xl w-fit ml-auto mr-8;
+}

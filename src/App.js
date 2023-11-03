@@ -9,7 +9,9 @@ import LawyerLogin from "./components/lawyer/LawyerLogin";
 import LawHome from "./components/lawyer/LawHome";
 import FetchAll from "./components/FetchAll";
 import FetchMine from "./components/FetchMine";
-
+import LawReq from "./components/lawyer/LawReq";
+import LawChat from "./components/lawyer/LawChat";
+import LawChatC from "./components/lawyer/LawChatC";
 function App() {
   return (
       <Router>
@@ -24,6 +26,9 @@ function App() {
             <Route path="/raiseAQuery" element={<RaiseQuery/>}/>
             <Route path="/law/login" element={<LawyerLogin/>}/>
             <Route path="/law/home" element={<LawHome/>}/>
+            <Route path="/law/req" element={<LawReq/>}/>
+            {/*<Route path="/law/chat" element={<LawChat/>}/>*/}
+            <Route path="/law/chat" element={<LawChatC/>}/>
           </Routes>
         </div>
       </Router>
