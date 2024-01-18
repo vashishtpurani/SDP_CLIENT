@@ -9,9 +9,25 @@
         rounded-3xl hover:rounded-xl
         transition-all duration-300 ease-linear;
     }
+    .sidebar-icon-user{
+        @apply relative flex items-center justify-center h-12 w-20 mt-2 mb-3 mx-auto bg-white
+        text-black hover:text-searchbardown cursor-pointer
+        transition-all duration-300 ease-linear;
+    }
 
     .sidebar-tooltip{
         @apply absolute w-auto p-2 m-2 rounded-md text-white bg-gray-800 text-xl font-bold min-w-max left-14 shadow-md
         transition-all duration-100 scale-0 origin-left;
+    }
+
+    .sidebar-tooltip-user{
+        @apply absolute w-auto p-2 m-2 rounded-md text-white bg-blue-600 text-xl font-bold min-w-max left-14 shadow-md
+        transition-all duration-100 scale-0 origin-left;
+    }
+
+    .sidebar-text-user{
+        @apply absolute w-auto p-2 m-2 text-searchbarup bg-inherit text-xl font-bold min-w-max left-14
+        hover:text-searchbardown
+        transition-all duration-300 ease-linear;
     }
 }

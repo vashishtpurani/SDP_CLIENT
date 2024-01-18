@@ -38,7 +38,7 @@ const LawChatC = ()=>{
             setMsg([...msg, newMessageRecieved]);
             if (
                 !selectedChatCompare || // if chat is not selected or doesn't match current chat
-                selectedChatCompare._id !== newMessageRecieved.chat._id
+                selectedChatCompare._id !== newMessageRecieved.ch1at._id
             ) {
 
             } else {
@@ -64,6 +64,7 @@ const LawChatC = ()=>{
     const fetchMsgs = async (id) => {
         try {
             const res = await authAxios.get(`msg/getMsgLaw/${id}`)
+            console.log(res)
             setMsg(res.data);
             socket.emit("join chat",id)
         } catch (error) {

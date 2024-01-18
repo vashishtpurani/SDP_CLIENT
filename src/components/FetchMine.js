@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FeedbackModal from "./lawyer/FeedbackModal";
 
 const FetchAll = () => {
     const baseURL = "http://localhost:5000/";
@@ -13,6 +14,19 @@ const FetchAll = () => {
     const [data, setData] = useState([]);
     const [ID, setId] = useState([{id:""}]);
     let res;
+
+    const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
+    const openFeedbackModal = (advId,qId,uId) => {
+        sessionStorage.setItem("advId",advId)
+        sessionStorage.setItem("qId",qId)
+        sessionStorage.setItem("uId",uId)
+        setFeedbackModalOpen(true);
+    };
+
+    const closeFeedbackModal = () => {
+        setFeedbackModalOpen(false);
+    };
 
     const getAll = async () => {
         try {
@@ -31,7 +45,7 @@ const FetchAll = () => {
         }
     }
     const feedback =  async (id)=>{
-        // const res = await authAxios.post(`user/reopen/${id}`)
+
         console.log(id)
     }
     const hire =  async (id)=>{
@@ -93,13 +107,16 @@ const FetchAll = () => {
                             <li key={index} className="mb-2">
                                 <div className="border p-8 rounded-md shadow flex flex-col relative">
                                     <div className="absolute top-2 right-2">
-                                        <button className="relative top-2 right-5 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>feedback(answerObject.id)}>
+                                        <button className="relative top-2 right-5 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>openFeedbackModal(answerObject.id,item.id,item.uId)}>
                                             feedback
                                         </button>
                                         <button className="relative top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md" onClick={()=>hire(answerObject.id)}>
                                             hire a lawyer
                                         </button>
                                     </div>
+                                    {isFeedbackModalOpen && (
+                                        <FeedbackModal onClose={closeFeedbackModal}/>
+                                    )}
                                     <p className="text-gray-800">
                                         Lawyer Name: {answerObject.lawyerName}
                                     </p>

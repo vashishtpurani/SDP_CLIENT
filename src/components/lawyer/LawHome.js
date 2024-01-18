@@ -50,7 +50,7 @@ const LawHome = () => {
 
     const closeModal = () => {
         setSelectedId(null);
-        setInputValue({...inputValue,Ans:'',id:''}); // Reset input value when closing the modal
+        setInputValue({...inputValue,Ans:'',id:''});
     };
 
     const handleInputChange = (event) => {
@@ -128,7 +128,7 @@ const LawHome = () => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default LawHome;

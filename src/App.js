@@ -12,6 +12,12 @@ import FetchMine from "./components/FetchMine";
 import LawReq from "./components/lawyer/LawReq";
 import LawChat from "./components/lawyer/LawChat";
 import LawChatC from "./components/lawyer/LawChatC";
+import Demo from "./components/Demo";
+import UserHomu from "./components/UserHomu";
+import Feedback from "./components/lawyer/Feedback";
+import Feedbackus from "./components/feedbackus";
+import NISHI from "./components/NISHI";
+import CommunityHome from "./components/community/CommunityHome";
 function App() {
   return (
       <Router>
@@ -29,6 +35,12 @@ function App() {
             <Route path="/law/req" element={<LawReq/>}/>
             {/*<Route path="/law/chat" element={<LawChat/>}/>*/}
             <Route path="/law/chat" element={<LawChatC/>}/>
+            <Route path="/law/feedback" element={<Feedback/>}/>
+            <Route path="/demo" element={<Demo/>}/>
+            <Route path="/homu" element={<UserHomu/>}/>
+            <Route path="/uWu" element={<Feedbackus/>}/>
+            <Route path="/nishi" element={<NISHI/>}/>
+            <Route path="/comHome" element={<CommunityHome/>}/>
           </Routes>
         </div>
       </Router>
