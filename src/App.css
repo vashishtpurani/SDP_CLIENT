@@ -30,4 +30,29 @@
         hover:text-searchbardown
         transition-all duration-300 ease-linear;
     }
+
+    @keyframes gradientChange {
+        0% {
+            background-position: 100% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+    .gradient-bg {
+        background-size: 200% 100%;
+        background-position: right top;
+        transition: all 0.3s ease-out;
+        animation: gradientChange 3s infinite;
+    }
+
+    .otp-button {
+        @apply bg-gradient-to-r from-polyblue to-lapis text-white px-4 py-2 rounded-md focus:outline-none mx-auto my-auto w-full;
+    }
+
+    .otp-button:hover {
+        @apply bg-gradient-to-l from-polyblue to-lapis hover:duration-300;
+    }
+
 }

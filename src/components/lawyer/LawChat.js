@@ -89,7 +89,7 @@ const LawChat = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen ">
             <div className="flex">
                 <SideBarChatLaw chats={chats} onChatItemClick={handleChatItemClick} />
                 <div className="w-full">

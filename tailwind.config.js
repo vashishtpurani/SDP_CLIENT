@@ -6,6 +6,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // new template
+        lapis:'#1A659E',
+        polyblue:'#004E89',
+        beige:'#EFEFD0',
+        peach:'#F7C59F',
+        crayolaOrange:'#FF6B35',
+
+        //UwU
+        veryDarkBlue:"#03045e",
+        darkBlue:"#0077B6",
+        mediumBlue:"#00b4d8",
+        lightBlue:"#90e0ef",
+        veryLightBlue:"#caf0f8",
+
+
         lcream:'#b8ada3',
         lcream1:'#937a52',
         dcream:'#675c54',
