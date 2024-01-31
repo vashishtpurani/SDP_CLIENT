@@ -18,6 +18,7 @@ import Feedback from "./components/lawyer/Feedback";
 import Feedbackus from "./components/feedbackus";
 import NISHI from "./components/NISHI";
 import CommunityHome from "./components/community/CommunityHome";
+import OTPFINAL from "./components/OTPFINAL";
 function App() {
   return (
       <Router>
@@ -41,6 +42,7 @@ function App() {
             <Route path="/uWu" element={<Feedbackus/>}/>
             <Route path="/nishi" element={<NISHI/>}/>
             <Route path="/comHome" element={<CommunityHome/>}/>
+            <Route path="/otpp" element={<OTPFINAL/>}/>
           </Routes>
         </div>
       </Router>

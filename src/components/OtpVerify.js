@@ -1,20 +1,20 @@
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
-import OtpInput from 'react-otp-input';
+import { useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import OtpInput from 'react-otp-input'
 
 const OtpVerify = () => {
-    const navigate = useNavigate();
-    const baseUrl = "http://localhost:5000/";
+    const navigate = useNavigate()
+    const baseUrl = "http://localhost:5000/"
 
-    const [otp, setOtp] = useState();
-    const [data, setData] = useState({ number: '' });
-    const [verify, setVerify] = useState({ number: "", otp: "" });
-    const [click, setClick] = useState(true);
+    const [otp, setOtp] = useState()
+    const [data, setData] = useState({ number: '' })
+    const [verify, setVerify] = useState({ number: "", otp: "" })
+    const [click, setClick] = useState(true)
 
-    let res;
+    let res
 
     const OTPP = async (event) => {
         event.preventDefault();
@@ -111,7 +111,7 @@ const OtpVerify = () => {
                 </form>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default OtpVerify;
+export default OtpVerify

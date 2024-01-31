@@ -20,6 +20,10 @@ module.exports = {
         lightBlue:"#90e0ef",
         veryLightBlue:"#caf0f8",
 
+        //heatanshu
+        bgDarkBlue:"#0E2229",
+        mdGold:"#A56708",
+        formbg:'#AEC4CE',
 
         lcream:'#b8ada3',
         lcream1:'#937a52',
