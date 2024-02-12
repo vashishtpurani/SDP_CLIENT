@@ -1,10 +1,10 @@
-import gavelBg from "../assets/images/user/gavelBg.png";
-import {useNavigate} from "react-router-dom";
-import React, {useEffect, useState} from "react";
-import axios from "axios";
-import OtpInput from "react-otp-input";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import gavelBg from "../assets/images/user/gavelBg.png"
+import {useNavigate} from "react-router-dom"
+import React, {useEffect, useState} from "react"
+import axios from "axios"
+import OtpInput from "react-otp-input"
+import {NotificationContainer, NotificationManager} from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
 
 
 const OTPFINAL = () => {
@@ -15,13 +15,14 @@ const OTPFINAL = () => {
     const [data, setData] = useState({ number: '' })
     const [verify, setVerify] = useState({ number: "", otp: "" })
     const [click, setClick] = useState(true)
-    const [timer, setTimer] = useState(60);
+    const [timer, setTimer] = useState(60)
+    const [error, setError] = useState(false)
 
 
     let res
     const reqOtp = async (event) => {
         try{
-            event.preventDefault();
+            event.preventDefault()
 
             res = await axios.post(baseUrl + "user/sendOtp", data)
 
@@ -36,8 +37,12 @@ const OTPFINAL = () => {
             else if(res.status===400) alert("user already exists")
             else alert("Something went wrong please try again later")
         }catch (e) {
+            setError(true)
             if(e.response.status===400) NotificationManager.error("User already exists")
             console.log(e)
+            setTimeout(() => {
+                setError(false)
+            }, 1000)
         }
 
     }
@@ -55,6 +60,7 @@ const OTPFINAL = () => {
                 navigate("/signup");
             }
         } catch (e) {
+            setError(true);
             console.log(e)
         }
     }
@@ -84,8 +90,9 @@ const OTPFINAL = () => {
         }
     },[verify.otp])
 
+
     return (
-        <div className="h-screen w-screen flex items-center justify-center bg-bgDarkBlue">
+        <div className={`h-screen w-screen flex items-center justify-center bg-bgDarkBlue `}>
             <img src={gavelBg} className="absolute inset-0 object-cover w-full h-full z-0 select-none" alt="Background" />
             <div className="p-4 mx-auto my-auto h-1/2 w-1/3 bg-offwhite z-10 opacity-80 rounded-2xl flex flex-col shadow-md shadow-amber-50">
                 <div className="w-full h-1/6 mt-3 text-mdGold text-5xl flex items-center justify-center relative">
@@ -96,7 +103,7 @@ const OTPFINAL = () => {
                     </div>
                 </div>
                 {/*SEND OTP DIV*/}
-                <div className="h-5/6 w-full flex flex-col">
+                <div className={`h-5/6 w-full flex flex-col ${error ? 'transition ease-out duration-1000 animate-shake' : ''}`}>
                     {click?(
                         <div className="mx-auto my-auto w-[70%] h-[70%] space-y-6">
                             <div className="text-mdGold mt-6 font-mono text-2xl">
@@ -111,6 +118,9 @@ const OTPFINAL = () => {
                                 onChange={(event) => setData({ ...data,number: event.target.value })}
                                 required
                             />
+                            <div>
+                                Already a user? <a href={"/login"} className={"font-semibold text-mdGold"}>Login</a>
+                            </div>
                         </div>
                     ):(
                         <div className="mx-auto my-auto w-[70%] h-[70%] space-y-2 justify-center items-center text-center">

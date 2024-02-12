@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Sidu from "./Sidu";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import Sidu from "./Sidu"
+import {NotificationContainer, NotificationManager} from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
 
 
 const RaiseQuery = () => {
-    const navigate = useNavigate();
-    const baseURL = "http://localhost:5000/";
-    const token = sessionStorage.getItem("token");
+    const navigate = useNavigate()
+    const baseURL = "http://localhost:5000/"
+    const token = sessionStorage.getItem("token")
     const [set,isSet] = useState(true)
     useEffect(() => {
-        if (!token) navigate("/login");
-    }, []);
+        if (!token) navigate("/login")
+    }, [])
 
     const [data, setData] = useState({
         query: "",
@@ -165,7 +165,7 @@ const RaiseQuery = () => {
                     )}
             <NotificationContainer/>
         </div>
-    );
-};
+    )
+}
 
-export default RaiseQuery;
+export default RaiseQuery

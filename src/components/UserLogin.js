@@ -52,7 +52,7 @@ const UserLogin =()=>{
                         </div>
                     </div>
                 </div>
-                <img src={signin} className='w-full h-full'/>
+                <img src={signin} className='w-full h-full object-cover'/>
             </div>
         </>
     )

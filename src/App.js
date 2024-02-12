@@ -19,12 +19,14 @@ import Feedbackus from "./components/feedbackus";
 import NISHI from "./components/NISHI";
 import CommunityHome from "./components/community/CommunityHome";
 import OTPFINAL from "./components/OTPFINAL";
+import LoginFinal from "./components/LoginFInal";
 function App() {
   return (
       <Router>
         <div className="justify-items-center">
           <Routes>
-            <Route path="/login" element={<UserLogin/>}/>
+            {/*<Route path="/login" element={<UserLogin/>}/>*/}
+            <Route path="/login" element={<LoginFinal/>}/>
             <Route path="/otpVerify" element={<OtpVerify/>}/>
             <Route path="/signup" element={<UserSignUp/>}/>
             <Route path="/home" element={<HomePage/>}/>
