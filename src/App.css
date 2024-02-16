@@ -4,18 +4,30 @@
 
 @layer components{
     .sidebar-icon{
-        @apply relative flex items-center justify-center h-12 ml-3 w-12 mt-2 mb-3 mx-auto bg-gray-600
-        text-white cursor-pointer
-        rounded-md transition-all duration-300 ease-linear;
+        @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-3 mx-auto bg-gray-800
+        text-white hover:text-red-600 cursor-pointer
+        rounded-3xl hover:rounded-md
+        transition-all duration-300 ease-linear;
     }
     .sidebar-icon:hover{
+        @apply rounded-xl text-red-600
+    }
+    .sidebar-icon-userHome{
+        @apply relative flex items-center justify-center h-14 w-14 mt-3 mb-3 mx-auto bg-gray-600
+        text-white cursor-pointer
+        rounded-2xl transition-all duration-300 ease-linear;
+    }
+    .sidebar-icon-userHome:hover{
         @apply rounded-xl w-32 text-red-600;
     }
     .sidebar-tooltip{
         @apply absolute w-auto p-2 m-2 rounded-md text-white bg-gray-800 text-xl font-bold min-w-max left-14 shadow-md
         transition-all duration-100 scale-0 origin-left;
     }
-
+    .sidebar-tooltip-userHome{
+        @apply absolute w-auto p-2 m-2 rounded-md text-white bg-gray-800 text-xl font-bold min-w-max left-14 shadow-md
+        transition-all duration-100 scale-0 origin-left;
+    }
     .sidebar-icon-user{
         @apply relative flex items-center justify-center h-12 w-20 mt-2 mb-3 mx-auto bg-white
         text-black hover:text-searchbardown cursor-pointer

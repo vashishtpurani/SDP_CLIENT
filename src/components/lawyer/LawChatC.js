@@ -38,7 +38,7 @@ const LawChatC = ()=>{
             setMsg([...msg, newMessageRecieved]);
             if (
                 !selectedChatCompare || // if chat is not selected or doesn't match current chat
-                selectedChatCompare._id !== newMessageRecieved.ch1at._id
+                selectedChatCompare._id !== newMessageRecieved.chat._id
             ) {
 
             } else {

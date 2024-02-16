@@ -140,7 +140,7 @@ export const UserHomu = () => {
     }
 
     return (
-        <div className="min-h-screen bg-bgblackblue flex ml-64">
+        <div className="min-h-screen bg-searchbarup flex ml-64">
             <Sidu />
             <div className="flex-col w-screen">
                 <Nabu onFilter={handleFilter} />
