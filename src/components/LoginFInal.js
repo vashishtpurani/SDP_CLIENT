@@ -9,7 +9,7 @@ export default function LoginFinal() {
 
     const changeSelected = () => {
         setSelected((prevSelected) => !prevSelected);
-    };
+    }
 
     const baseURL = "http://localhost:5000/";
     const navigate = useNavigate();

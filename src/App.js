@@ -20,12 +20,14 @@ import NISHI from "./components/NISHI";
 import CommunityHome from "./components/community/CommunityHome";
 import OTPFINAL from "./components/OTPFINAL";
 import LoginFinal from "./components/LoginFInal";
+import Test from "./components/Test";
+import OneQuery from "./components/OneQuery";
+import LandingPage from "./components/LandingPage";
 function App() {
   return (
       <Router>
         <div className="justify-items-center">
           <Routes>
-            {/*<Route path="/login" element={<UserLogin/>}/>*/}
             <Route path="/login" element={<LoginFinal/>}/>
             <Route path="/otpVerify" element={<OtpVerify/>}/>
             <Route path="/signup" element={<UserSignUp/>}/>
@@ -36,7 +38,6 @@ function App() {
             <Route path="/law/login" element={<LawyerLogin/>}/>
             <Route path="/law/home" element={<LawHome/>}/>
             <Route path="/law/req" element={<LawReq/>}/>
-            {/*<Route path="/law/chat" element={<LawChat/>}/>*/}
             <Route path="/law/chat" element={<LawChatC/>}/>
             <Route path="/law/feedback" element={<Feedback/>}/>
             <Route path="/demo" element={<Demo/>}/>
@@ -45,10 +46,13 @@ function App() {
             <Route path="/nishi" element={<NISHI/>}/>
             <Route path="/comHome" element={<CommunityHome/>}/>
             <Route path="/otpp" element={<OTPFINAL/>}/>
+            <Route path="/test" element={<Test/>}/>
+            <Route path="/OneQuery" element={<OneQuery/>}/>
+            <Route path="/" element={<LandingPage/>}/>
           </Routes>
         </div>
       </Router>
-  );
+  )
 }
 
 export default App;

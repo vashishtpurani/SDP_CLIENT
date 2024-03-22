@@ -47,7 +47,7 @@ const FetchAll = () => {
                 return `${daysDifference}d ago`;
             }
         }
-    };
+    }
 
     return (
         <div className="container mx-auto my-8">

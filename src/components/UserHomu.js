@@ -70,7 +70,7 @@ export const UserHomu = () => {
             array.forEach((item) => {
                 if (item.ANS) {
                     count += item.ANS.length;
-                    countAnswers(item.ANS); // Recursively count nested answers
+                    countAnswers(item.ANS);
                 }
             });
         };
@@ -139,6 +139,26 @@ export const UserHomu = () => {
         }
     }
 
+    const redOneQuery = (id) =>{
+        if (id) {
+            const path = `http://localhost:3000/OneQuery?id=${id}`;
+            console.log(path);
+
+            navigate(`/OneQuery?id=${id}`);
+        } else {
+            console.error("ID is undefined");
+        }
+    }
+    const Share = (text) => {
+        const path = `http://localhost:3000/OneQuery?id=${text}`;
+        navigator.clipboard.writeText(path)
+            .then(() => {
+                NotificationManager.success("Copied to clipboard!!!")
+            })
+            .catch((error) => {
+                console.error('Failed to copy:', error);
+            });
+    };
     return (
         <div className="min-h-screen bg-searchbarup flex ml-64">
             <Sidu />
@@ -148,7 +168,7 @@ export const UserHomu = () => {
                     {filteredData ? (
                         filteredData.map((item, index) => (
                             <div key={item._id} className={`w-fit h-fit mx-auto my-auto  sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 flex`}>
-                                <div className={` mx-auto my-auto rounded-md overflow-hidden mb-4 p-4 ${index % 2 === 0 ? 'bg-mdGold' : 'bg-gray-700'}`}>
+                                <div className={` mx-auto my-auto rounded-md overflow-hidden mb-4 p-4 bg-offwhite`}>
                                     <h1 className={`${fontSize(item.query)} font-bold mb-2`}>{item.query}</h1>
                                     <div className="flex mb-2 items-start mt-4">
                                         <label className="text-sm text-offwhite">{item.Classified} | {formatTime(item.createdAt)}</label>
@@ -163,7 +183,7 @@ export const UserHomu = () => {
                                             <button className={`${checkDownVote(item)}`} onClick={() => Vote("downVote", item.id)}> <RxCaretDown size="28" /></button>
                                         </div>
                                         <div className="flex">
-                                            <button className="text-gray-500">
+                                            <button className="text-gray-500" onClick={()=>redOneQuery(item.id)}>
                                                 <MdModeComment size="28" />
                                             </button>
                                             <div className='w-7 items-center'>
@@ -171,7 +191,7 @@ export const UserHomu = () => {
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-center">
-                                            <button className="rounded-full p-0.5 w-fit h-fit text-gray-500">
+                                            <button className="rounded-full p-0.5 w-fit h-fit text-gray-500" onClick={()=>Share(item.id)}>
                                                 <IoMdShare size="28" />
                                             </button>
                                         </div>

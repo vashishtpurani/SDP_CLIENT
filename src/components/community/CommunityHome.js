@@ -165,7 +165,7 @@ const CommunityHome = ()=>{
                                                 <button className={`${checkDownVote(item)}`} onClick={()=>Vote("downVote",item.id)}> {<RxCaretDown size="28"/>}</button>
                                             </div>
                                             <div className={"flex"}>
-                                                <button className={"text-gray-500"} onClick={()=>redir(item._id)}>
+                                                <button className={"text-gray-500 cursor-pointerz"} onClick={()=>redir(item._id)}>
                                                     <MdModeComment size="28"/>
                                                 </button>
                                                 <div className='w-7 items-center'>
